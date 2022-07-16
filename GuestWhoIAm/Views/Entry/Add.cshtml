@@ -1,0 +1,20 @@
+﻿
+@model GuestWhoIAm.Models.Entry
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add new Entry</h1>
+
+@using(Html.BeginForm("Add","Entry", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <span>Entry author:</span> @Html.TextBoxFor(x=>x.Author)
+    <span>Entry message</span>@Html.TextBoxFor(x=>x.Content)
+    <span>Entry email</span>@Html.TextBoxFor(x=>x.Email)
+    <button typeof="submit">send</button>
+    <p>Id po zapisie: <strong>@TempData["Id"]</strong></p>
+}
+
+
+

@@ -1,0 +1,43 @@
+﻿
+@using GuestWhoIAm.Models
+@using System.Collections
+@{
+    ViewData["Title"] = "GuessGame";
+}
+
+<div id="entryPlace">
+
+
+</div>
+
+@section Scripts{
+    <script>
+        $('#entryPlace').load("/Entry/EntryPostPartial")
+    </script>
+}
+@*
+@using(Html.BeginForm("GuessGame", "Entry", FormMethod.Get)){
+    <h1>Entry list</h1>
+<div id="GuessGame">
+    <div id="GuessGameHolder">
+
+<ul id="GuessGameBox">
+@foreach (var entry in Model){
+   <li>
+
+       <div class="author"> 
+            @entry.Id Author: @entry.Author  <br> 
+        </div>
+        <div class="content">
+            @entry.Content <br> 
+       </div>
+       <div class="dateTime">
+            @entry.DateTime
+      </div>
+   </li>
+}
+</ul>
+</div>
+</div>
+}
+*@
