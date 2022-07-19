@@ -8,12 +8,36 @@
 
 @using(Html.BeginForm("Add","Entry", FormMethod.Post))
 {
+  
     @Html.ValidationSummary()
-    <span>Entry author:</span> @Html.TextBoxFor(x=>x.Author)
-    <span>Entry message</span>@Html.TextBoxFor(x=>x.Content)
-    <span>Entry email</span>@Html.TextBoxFor(x=>x.Email)
+    <div id="AddPage">
+    <div id="AddPageHolder">
+
+
+  <div id="AddPageBox">
+      <div class="name"> 
+          <span>Entry author:</span> @Html.TextBoxFor(x=>x.Author)
+        </div>
+                
+                
+        <div class="content">
+          <span>Entry message</span>@Html.TextAreaFor(x=>x.Content)
+       </div>
+       <div class="email">
+         <span>Entry email</span>@Html.TextBoxFor(x=>x.Email)
+      </div>
+   
+   
+ 
+      </div>
+</div>
+</div>
+    
+    
+    
+    
     <button typeof="submit">send</button>
-    <p>Id po zapisie: <strong>@TempData["Id"]</strong></p>
+    
 }
 
 

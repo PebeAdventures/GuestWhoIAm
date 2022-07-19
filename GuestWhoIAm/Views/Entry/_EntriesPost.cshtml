@@ -1,24 +1,26 @@
-﻿@model IEnumerable<GuestWhoIAm.Models.Entry>
+﻿
+@model Entry
 
-    <h1>Entry list</h1>
+
 <div id="GuessGame">
     <div id="GuessGameHolder">
 
 <ul id="GuessGameBox">
-@foreach (var entry in Model){
-   <li>
-
-       <div class="author"> 
-            @entry.Id Author: @entry.Author  <br> 
-        </div>
+<li>
+      <div class="author"> 
+   Author: @Html.DisplayFor(x=>x.Author)
+    </div>
+                
+                
         <div class="content">
-            @entry.Content <br> 
+             @Html.DisplayFor(x=>x.Content)<br>
        </div>
        <div class="dateTime">
-            @entry.DateTime
+           Post time: @Html.DisplayFor(x=>x.DateTime)
       </div>
    </li>
-}
+   
+ 
 </ul>
 </div>
 </div>

@@ -67,3 +67,49 @@ body {
        
         
     }
+
+#AddPage {
+    display: flex;
+}
+
+#AddPageHolder {
+    width: 100%;
+    display: flex;
+}
+
+#AddPageBox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+    #AddPageBox div.name {
+        border: .1rem solid black;
+        list-style: none;
+        border-radius: 2px;
+        align-items: normal;
+        display: flex;
+        flex-direction: column;
+ 
+    }
+    #AddPageBox div.content {
+        background-color: antiquewhite;
+        padding: .5rem;
+        border: 0.1rem solid black;
+    }
+    #AddPageBox div.content textarea {
+       
+        border: 0.1rem solid black;
+        
+        display: flex;
+        flex-direction: column;
+        width: 1000px;
+        height: 300px;
+        resize: none;
+    }
+
+    #AddPageBox div.email {
+        background-color: azure;
+        border: 0.1rem solid black;
+    }

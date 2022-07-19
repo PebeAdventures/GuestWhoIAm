@@ -1,43 +1,72 @@
-﻿
+﻿@model IEnumerable<GuestWhoIAm.Models.Entry>
+
 @using GuestWhoIAm.Models
 @using System.Collections
+
 @{
     ViewData["Title"] = "GuessGame";
 }
 
-<div id="entryPlace">
+@using (Html.BeginForm())
+{
 
+
+
+    foreach (Entry entry in Model)
+    {
+        Html.RenderPartial("_EntriesPost", entry);
+    }
+
+}
+<div id="GuessGameBox">
+    <div class="dateTime">
+
+
+        @using (Html.BeginForm("ChangePage", "Entry", FormMethod.Post))
+        {
+
+            <label id="goButton">Write page number to go</label>
+            @Html.TextBox("pageIndex")
+            
+            <button typeof="submit" id="goButton" value="Go">Go</button>
+        }
+         @using (Html.BeginForm("PageUp", "Entry", FormMethod.Post))
+        {
+
+            <label id="goButton">Next Page</label>
+
+         
+
+    
+
+<div hidden>
+     <input type="text" name="reportName" value=@ViewContext.HttpContext.Request.QueryString.Value />
+     </div>
+            <button typeof="submit" id="goButton" value="Go">&#8594;</button>
+        }
+            @using (Html.BeginForm("PageDown", "Entry", FormMethod.Post))
+        {
+
+            <label id="goButton">Prev Page</label>
+
+         
+
+    
+
+<div hidden>
+     <input type="text" name="reportName" value=@ViewContext.HttpContext.Request.QueryString.Value />
+     </div>
+            <button typeof="submit" id="goButton" value="Go">&#8592;</button>
+        }
 
 </div>
-
-@section Scripts{
-    <script>
-        $('#entryPlace').load("/Entry/EntryPostPartial")
-    </script>
-}
-@*
-@using(Html.BeginForm("GuessGame", "Entry", FormMethod.Get)){
-    <h1>Entry list</h1>
-<div id="GuessGame">
-    <div id="GuessGameHolder">
-
-<ul id="GuessGameBox">
-@foreach (var entry in Model){
-   <li>
-
-       <div class="author"> 
-            @entry.Id Author: @entry.Author  <br> 
-        </div>
-        <div class="content">
-            @entry.Content <br> 
-       </div>
-       <div class="dateTime">
-            @entry.DateTime
-      </div>
-   </li>
-}
-</ul>
 </div>
-</div>
-}
-*@
+
+
+
+
+
+
+
+
+
