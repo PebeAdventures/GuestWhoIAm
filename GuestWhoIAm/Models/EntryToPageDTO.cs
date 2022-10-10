@@ -14,6 +14,7 @@
             return PrepareListToDisplay(entriesNumber, pageIndex);
         }
 
+
         private IEnumerable<Entry> PrepareListToDisplay(int entriesNumber, int pageIndex)
         {
             List<Entry> entriesList = entries.ToList();
