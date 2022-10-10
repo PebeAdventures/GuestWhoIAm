@@ -17,15 +17,18 @@
   <div id="AddPageBox">
       <div class="name"> 
           <span>Entry author:</span> @Html.TextBoxFor(x=>x.Author)
-        </div>
-                
-                
+        </div>                          
         <div class="content">
-          <span>Entry message</span>@Html.TextAreaFor(x=>x.Content)
+          <span>content of the riddle</span>@Html.TextAreaFor(x=>x.Content)
        </div>
+              <div class="answer">
+         <span>Correct Answer</span>@Html.TextBoxFor(x=>x.CorrectAnswer)
+      </div>
        <div class="email">
          <span>Entry email</span>@Html.TextBoxFor(x=>x.Email)
       </div>
+      @Html.HiddenFor(x=>x.Answers)
+
    
    
  

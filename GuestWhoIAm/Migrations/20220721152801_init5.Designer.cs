@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GuestWhoIAm.Migrations
 {
     [DbContext(typeof(DbGuestContext))]
-    [Migration("20220716094914_init2")]
-    partial class init2
+    [Migration("20220721152801_init5")]
+    partial class init5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,13 +24,34 @@ namespace GuestWhoIAm.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("GuestWhoIAm.Models.Entry", b =>
+            modelBuilder.Entity("GuestWhoIAm.Models.Answer", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AnswerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AnswerId"), 1L, 1);
+
+                    b.Property<string>("AnswerProvided")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("EntryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AnswerId");
+
+                    b.HasIndex("EntryId");
+
+                    b.ToTable("Answers");
+                });
+
+            modelBuilder.Entity("GuestWhoIAm.Models.Entry", b =>
+                {
+                    b.Property<int>("EntryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EntryId"), 1L, 1);
 
                     b.Property<string>("Author")
                         .IsRequired()
@@ -40,6 +61,9 @@ namespace GuestWhoIAm.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CorrectAnswer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
@@ -47,9 +71,21 @@ namespace GuestWhoIAm.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntryId");
 
                     b.ToTable("Entries");
+                });
+
+            modelBuilder.Entity("GuestWhoIAm.Models.Answer", b =>
+                {
+                    b.HasOne("GuestWhoIAm.Models.Entry", null)
+                        .WithMany("Answers")
+                        .HasForeignKey("EntryId");
+                });
+
+            modelBuilder.Entity("GuestWhoIAm.Models.Entry", b =>
+                {
+                    b.Navigation("Answers");
                 });
 #pragma warning restore 612, 618
         }

@@ -25,7 +25,7 @@ namespace GuestWhoIAm.Services
             _guestContext.Entries.Add(entry);
             _guestContext.SaveChanges();
 
-            return entry.Id;
+            return entry.EntryId;
         }
     }
 }

@@ -28,7 +28,7 @@
             <label id="goButton">Write page number to go</label>
             @Html.TextBox("pageIndex")
             
-            <button typeof="submit" id="goButton" value="Go" onclick="return confirm('test')">Go</button>
+            <button typeof="submit" id="goButton" value="Go" onclick="return confirm('Page changed')">Go</button>
         }
          @using (Html.BeginForm("PageUp", "Entry", FormMethod.Post))
         {

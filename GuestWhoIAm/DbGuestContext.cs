@@ -10,6 +10,7 @@ namespace GuestWhoIAm
         }
 
         public DbSet<Entry> Entries { get; set; }
+        public DbSet<Answer> Answers { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
