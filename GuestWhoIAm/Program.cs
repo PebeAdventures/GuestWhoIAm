@@ -2,6 +2,8 @@ using GuestWhoIAm;
 using GuestWhoIAm.Services;
 using GuestWhoIAm.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
+//using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +12,14 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IEntryService, EntryService>();
 builder.Services.AddDbContext<DbGuestContext>(builder =>
 {
-    builder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=GuestWhoImBase;Integrated Security=True");
+
+    builder.UseSqlServer(@"Data Source=guessdb.database.windows.net;Initial Catalog=guessdbserver2;Persist Security Info=False;User ID=pebe@piotrbujakhotmail.onmicrosoft.com;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication=""Active Directory Interactive""");
 });
+
+//builder.Services.AddDbContext<DbGuestContext>(builder =>
+//{
+//    builder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=GuestWhoImBase;Integrated Security=True");
+//});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
