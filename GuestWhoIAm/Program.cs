@@ -12,8 +12,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IEntryService, EntryService>();
 builder.Services.AddDbContext<DbGuestContext>(builder =>
 {
-
-    builder.UseSqlServer(@"Data Source=guessdb.database.windows.net;Initial Catalog=guessdbserver2;Persist Security Info=False;User ID=pebe@piotrbujakhotmail.onmicrosoft.com;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication=""Active Directory Interactive""");
+    builder.UseSqlServer("Data Source=guessdb.database.windows.net,1433;Initial Catalog=guessdbserver2;User ID=pebe@piotrbujakhotmail.onmicrosoft.com;Password=00Kurwamac11!");
+    // builder.UseSqlServer(@"Data Source=guessdb.database.windows.net;Initial Catalog=guessdbserver2;Persist Security Info=False;User ID=pebe@piotrbujakhotmail.onmicrosoft.com;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication=""Active Directory Interactive""");
 });
 
 //builder.Services.AddDbContext<DbGuestContext>(builder =>
