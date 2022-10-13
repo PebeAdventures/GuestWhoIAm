@@ -12,13 +12,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IEntryService, EntryService>();
 builder.Services.AddDbContext<DbGuestContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString(""));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("dbContextConnection"));
 });
 
-//builder.Services.AddDbContext<DbGuestContext>(builder =>
-//{
-//    builder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=GuestWhoImBase;Integrated Security=True");
-//});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
